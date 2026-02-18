@@ -1,30 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Be My Valentine?</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Well Soon</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to top, #fceff9, #e0f7fa);
+        overflow: hidden;
+        font-family: "Georgia", serif;
+    }
+
+    h1 {
+        position: absolute;
+        top: 8%;
+        font-size: 3rem;
+        color: #5c5470;
+        opacity: 0;
+        animation: fadeIn 3s ease forwards;
+        letter-spacing: 2px;
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+
+    .bouquet {
+        width: 300px;
+        height: 400px;
+    }
+
+    .stem {
+        stroke: #3a7d44;
+        stroke-width: 4;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        animation: growStem 3s ease forwards;
+    }
+
+    @keyframes growStem {
+        to { stroke-dashoffset: 0; }
+    }
+
+    .flower {
+        transform-origin: center;
+        transform: scale(0);
+        animation: bloom 1.5s ease forwards;
+    }
+
+    .flower:nth-child(3) { animation-delay: 2.5s; }
+    .flower:nth-child(4) { animation-delay: 2.8s; }
+    .flower:nth-child(5) { animation-delay: 3.1s; }
+
+    @keyframes bloom {
+        to { transform: scale(1); }
+    }
+
+    .float {
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+</style>
 </head>
 
 <body>
-  <div id="noise"></div>
-  <canvas id="fx"></canvas>
 
-  <main class="card">
-    <div class="badge">💘 Confidential Invitation</div>
+<h1>Get Well Soon</h1>
 
-    <h1>Will you be my Valentine?</h1>
-    <p class="sub">Choose wisely. Some choices shape destiny.</p>
+<svg class="bouquet float" viewBox="0 0 300 400">
 
-    <div class="btn-row" id="arena">
-      <button id="yesBtn" class="btn yes" type="button">YES</button>
-      <button id="noBtn" class="btn no" type="button">NO</button>
-    </div>
+    <!-- Stems -->
+    <line class="stem" x1="150" y1="350" x2="120" y2="200"/>
+    <line class="stem" x1="150" y1="350" x2="180" y2="210"/>
+    <line class="stem" x1="150" y1="350" x2="150" y2="180"/>
 
-    <p class="hint">The “No” button is… unavailable.</p>
-  </main>
+    <!-- Flowers -->
+    <g class="flower">
+        <circle cx="120" cy="200" r="20" fill="#ff8fab"/>
+        <circle cx="120" cy="200" r="8" fill="#ffd6e0"/>
+    </g>
 
-  <script src="script.js"></script>
+    <g class="flower">
+        <circle cx="180" cy="210" r="22" fill="#a0c4ff"/>
+        <circle cx="180" cy="210" r="9" fill="#d0e8ff"/>
+    </g>
+
+    <g class="flower">
+        <circle cx="150" cy="180" r="24" fill="#caffbf"/>
+        <circle cx="150" cy="180" r="10" fill="#f1faee"/>
+    </g>
+
+</svg>
+
 </body>
 </html>
