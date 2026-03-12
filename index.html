@@ -3,207 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Atalinah</title>
+    <title>Happy Birthday, Dad | A Legacy of Strength</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
+        :root {
+            --dark-bg: #0b0b0b;
+            --charcoal: #1a1a1a;
+            --gold: #d4af37;
+            --soft-white: #f5f5f5;
+        }
+
         body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #1a1a2e, #16213e);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--soft-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .header {
-            position: absolute;
-            top: 10%;
-            text-align: center;
-            width: 90%;
-            z-index: 10;
-            color: #fff;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        h1, h2, h3, .serif {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #E6E6FA, #DA70D6, #FFD700);
+        .gold-text { color: var(--gold); }
+        .gold-border { border: 1px solid var(--gold); }
+        
+        /* Cinematic Vignette */
+        .vignette {
+            background: radial-gradient(circle, rgba(26,26,26,0) 0%, rgba(11,11,11,1) 100%);
+        }
+
+        /* Shimmer Effect */
+        .shimmer {
+            background: linear-gradient(90deg, #d4af37 0%, #fcf6ba 50%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
         }
 
-        p {
-            font-size: 1.2rem;
-            font-style: italic;
-            opacity: 0;
-            animation: fadeIn 3s forwards 2s;
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        .garden {
-            position: relative;
-            width: 100%;
-            height: 60vh;
+        .btn-gold {
+            border: 1px solid var(--gold);
+            transition: all 0.5s ease;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Minimalist Glass Card */
+        .memory-card {
+            background: linear-gradient(145deg, #1a1a1a, #0b0b0b);
+            transition: all 0.5s ease;
             display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            padding-bottom: 20px;
-        }
-
-        .flower-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* The Stem */
-        .stem {
-            width: 4px;
-            background: linear-gradient(to top, #2d5a27, #4e9344);
-            height: 0;
-            border-radius: 2px;
-            animation: growStem 4s forwards ease-out;
-        }
-
-        /* The Flower Head */
-        .flower-head {
+        .memory-card::after {
+            content: "";
             position: absolute;
-            top: 0;
-            transform: scale(0);
-            animation: bloom 2s forwards ease-out;
-        }
-
-        .petal {
-            position: absolute;
-            width: 20px;
-            height: 40px;
-            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
-            transform-origin: bottom center;
-        }
-
-        .center {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #4b2c20;
-            border-radius: 50%;
-            top: -7px;
-            left: -7px;
-            z-index: 5;
-        }
-
-        /* Animations */
-        @keyframes growStem {
-            from { height: 0; }
-            to { height: var(--target-height); }
-        }
-
-        @keyframes bloom {
-            0% { transform: translateY(0) scale(0); }
-            80% { transform: translateY(calc(var(--target-height) * -1)) scale(0); }
-            100% { transform: translateY(calc(var(--target-height) * -1)) scale(1); }
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* Light sparkles */
-        .sparkle {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
             opacity: 0;
-            animation: sparkleAnim 5s infinite;
+            transition: opacity 0.5s ease;
         }
 
-        @keyframes sparkleAnim {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 0.8; transform: translateY(-20px); }
+        .memory-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .memory-card:hover::after {
+            opacity: 1;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 50;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Happy Birthday Atalinah</h1>
-        <p>Have a day as beautiful as your eyes when the sun hits them.</p>
-    </div>
+    <canvas id="canvas"></canvas>
 
-    <div class="garden" id="garden"></div>
+    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 vignette"></div>
 
-    <script>
-        const garden = document.getElementById('garden');
-        const colors = [
-            '#E6E6FA', // Lavender
-            '#9370DB', // Medium Purple
-            '#8A2BE2', // Blue Violet
-            '#FFD700', // Gold (Yellow)
-            '#DA70D6', // Orchid
-            '#BA55D3', // Medium Orchid
-            '#F0E68C', // Khaki (Light Yellow)
-            '#D8BFD8'  // Thistle
-        ];
+        <div class="relative z-10 px-4" data-aos="fade-up" data-aos-duration="2000">
+            <h1 class="text-5xl md:text-8xl mb-4 shimmer">Happy Birthday, Dad</h1>
+            <p class="text-lg md:text-2xl font-light tracking-widest italic opacity-80 mb-8">
+                A life built on strength, wisdom, and love.
+            </p>
+            <a href="#gallery" class="btn-gold px-10 py-3 uppercase tracking-widest text-xs">Begin</a>
+        </div>
+    </section>
 
-        function createFlower(index) {
-            const container = document.createElement('div');
-            container.className = 'flower-container';
+    <section id="gallery" class="py-24 bg-[#0e0e0e] px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl mb-16 gold-text" data-aos="fade-down">Moments & Legacy</h2>
             
-            const targetHeight = 150 + Math.random() * 200;
-            const delay = index * 0.5;
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="memory-card h-80 gold-border opacity-60" data-aos="fade-up" data-aos-delay="100">
+                   <span class="serif italic text-sm tracking-widest opacity-40">Strength</span>
+                </div>
+                <div class="memory-card h-80 gold-border opacity-80" data-aos="fade-up" data-aos-delay="300">
+                    <span class="serif italic text-sm tracking-widest opacity-40">Wisdom</span>
+                </div>
+                <div class="memory-card h-80 gold-border opacity-60" data-aos="fade-up" data-aos-delay="500">
+                    <span class="serif italic text-sm tracking-widest opacity-40">Love</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            // Stem
-            const stem = document.createElement('div');
-            stem.className = 'stem';
-            stem.style.setProperty('--target-height', `${targetHeight}px`);
-            stem.style.animationDelay = `${delay}s`;
+    <section class="py-32 bg-black px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-xs tracking-[0.6em] uppercase opacity-40 mb-24">Voices of Wisdom</h2>
+            
+            <div class="space-y-48">
+                <blockquote class="text-2xl md:text-4xl italic leading-relaxed serif px-4" data-aos="fade-up">
+                    "A good father is one of the most unsung, unpraised, unnoticed, and yet one of the most valuable assets in our society."
+                </blockquote>
+                <blockquote class="text-2xl md:text-4xl italic leading-relaxed serif px-4" data-aos="fade-up">
+                    "A father doesn’t tell you that he loves you. <span class="gold-text">He shows you.</span>"
+                </blockquote>
+                <blockquote class="text-2xl md:text-4xl italic leading-relaxed serif px-4" data-aos="fade-up">
+                    "Any man can be a father, but it takes someone special to be a dad."
+                </blockquote>
+            </div>
+        </div>
+    </section>
 
-            // Flower Head
-            const head = document.createElement('div');
-            head.className = 'flower-head';
-            head.style.setProperty('--target-height', `${targetHeight}px`);
-            head.style.animationDelay = `${delay}s`;
+    <section class="py-24 bg-[#111] px-6">
+        <div class="max-w-3xl mx-auto bg-[#1a1a1a] p-12 gold-border shadow-2xl text-center" data-aos="zoom-in">
+            <h2 class="text-2xl mb-8 gold-text serif uppercase tracking-widest">A Message For You</h2>
+            <p class="text-lg md:text-xl leading-loose font-light opacity-90 italic">
+                "Dad, thank you for everything you’ve done and everything you continue to do. 
+                Your strength, wisdom, and example have shaped who I am today. 
+                Wishing you a day as incredible as the impact you've had on our lives."
+            </p>
+        </div>
+    </section>
 
-            // Petals (Multiple layers)
-            const color = colors[index % colors.length];
-            for (let i = 0; i < 8; i++) {
-                const petal = document.createElement('div');
-                petal.className = 'petal';
-                petal.style.backgroundColor = color;
-                petal.style.transform = `rotate(${i * 45}deg)`;
-                petal.style.opacity = "0.9";
-                head.appendChild(petal);
+    <section class="h-screen flex flex-col items-center justify-center text-center bg-black relative px-4">
+        <div class="z-10">
+            <h2 class="text-6xl md:text-9xl shimmer serif mb-4" data-aos="zoom-out" data-aos-duration="2500">Happy Birthday</h2>
+            <p class="text-sm md:text-base tracking-[0.8em] uppercase opacity-50" data-aos="fade-up">Today we celebrate you.</p>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1500,
+            once: false,
+        });
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedY = Math.random() * 0.3 + 0.1;
+                this.opacity = Math.random() * 0.4;
             }
-
-            const center = document.createElement('div');
-            center.className = 'center';
-            head.appendChild(center);
-
-            container.appendChild(head);
-            container.appendChild(stem);
-            garden.appendChild(container);
+            update() {
+                this.y -= this.speedY;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
 
-        // Create 10 flowers
-        for (let i = 0; i < 10; i++) {
-            createFlower(i);
+        function init() {
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
         }
 
-        // Add some random sparkles
-        for (let i = 0; i < 20; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.width = Math.random() * 4 + 'px';
-            sparkle.style.height = sparkle.style.width;
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.top = Math.random() * 100 + 'vh';
-            sparkle.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(sparkle);
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
         }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
     </script>
 </body>
 </html>
